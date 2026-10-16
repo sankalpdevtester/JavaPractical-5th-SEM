@@ -4,15 +4,17 @@ class Product {
     int quantity;
 
     Product() {
-        this("Unknown", 0, 0);
     }
 
     Product(String name) {
-        this(name, 0, 0);
+        this.name = name;
+        quantity = 1;
     }
 
     Product(String name, double price) {
-        this(name, price, 1);
+        this.name = name;
+        this.price = price;
+        quantity = 1;
     }
 
     Product(String name, double price, int quantity) {
@@ -26,7 +28,14 @@ class Product {
     }
 
     void display() {
-        System.out.println(name + " " + price + " " + quantity + " Total: " + totalCost());
+        if (name == null) {
+            System.out.println("No product details");
+        } else {
+            System.out.println("Name: " + name);
+            System.out.println("Price: " + price);
+            System.out.println("Quantity: " + quantity);
+            System.out.println("Total Cost: " + totalCost());
+        }
     }
 
     public static void main(String[] args) {
